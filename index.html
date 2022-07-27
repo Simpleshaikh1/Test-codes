@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Product preview card component</title>
+
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fraunces">
+
+  <style>
+       
+      body {
+        background-color: hsl(30, 38%, 92%);
+        font-family: 'Montserrat';
+        
+      }
+      p {
+        font-weight: 500;
+        color: hsl(228, 12%, 48%);
+        font-size: 14px;
+      }
+      .whole {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 100px;
+        margin-bottom: 50pxi n;
+      }
+      .inner {
+        background-color: hsl(0, 0%, 100%);
+        border-radius: 15px;
+        display: flex;
+        max-width: 800px;
+      }
+      img {
+        width: 400px;
+        border-radius: 15px 0px 0px 15px;
+      }
+      .beneath_img {
+        display: flex;
+        flex-direction:column;
+        padding: 30px;
+      }
+      .perfume_txt {
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      }
+      .chanel {
+        font-family: 'Fraunces';
+        font-weight: 700;
+        font-size: 40px;
+        color: hsl(212, 21%, 14%);
+      }
+      .dollar {
+        display: flex;
+        justify-content:stretch;
+        align-items: center;
+        gap: 50px;
+      }
+      .discount {
+        font-family: 'Fraunces';
+        font-weight: 600;
+        color: hsl(158, 36%, 37%);
+        font-size: 30px;
+      }
+      .normal{
+        text-decoration: line-through;
+      }
+      
+      .icon {
+        width: 15px;
+        border-radius: 0px;
+        padding-right: 10px;
+      }
+      button {
+        background-color: hsl(158, 36%, 37%);
+        color: white;
+        padding: 15px;
+        border-radius: 15px;
+        border-style: none;
+        font-weight: 700;
+        font-size:medium;
+        
+      }
+
+      button:hover {
+        background-color: hsl(159, 33%, 17%);
+      }
+      @media only screen and (max-width: 600px) {
+        .inner {
+            flex-direction: column;
+            max-width: 375px;
+        }
+
+        img {
+            border-radius: 20px 20px 0px 0px;
+            max-width: 375px;
+        }
+    }
+  </style>
+
+
+</head>
+<body>
+  <div class="whole">
+    <div class="inner">
+      <img srcset="./images/image-product-mobile.jpg 686w, 
+                  ./images/image-product-desktop.jpg 400w" sizes="(max-width: 600px) 375px,400px"
+            src="./images/image-product-desktop.jpg"
+            alt="Gabrielle Essence Eau de Parfum">
+      <div class="beneath_img">
+        <p class="perfume_txt">Perfume</p>
+        <p class="chanel">Gabrielle Essence Eau De Parfum</p>
+        <p class="floral">
+          A floral, solar and voluptuous interpretation composed by Olivier Polge, Perfumer-Creator for the House of CHANEL.
+        </p>
+        <div class="dollar">
+          <p class="discount">$149.99</p>
+          <p class="normal">$169.99</p>
+        </div>
+        <button class="button"><img class="icon" src='./images/icon-cart.svg'>Add to Cart</button>
+      </div>
+
+    </div>  
+  </div>
+
+  <div class="general">
+    <!-- <p id="mani">first</p> -->
+  </div>
+  <div class="general">
+    first
+  </div>
+  <div class="general">
+    first
+  </div>
+  <div id="one">
+    first
+  </div>
+  <div id="one">
+    <p>first</p>
+  </div>
+  <div id="one">
+    <p>first</p>
+  </div>
+
+
+
+
+
+
+  <script>
+    import { resolve } from 'path'
+
+const paths = {
+  home: './src/home/*',
+  settings: './src/settings/*'
+}
+
+const resolvedPaths = Object.entries(paths)
+  .reduce((acc, [key, value]) => {
+    return {
+      ...acc,
+      [key]: resolve(__dirname, path)
+    } 
+  }, {})
+
+const normalisedPaths = Object.entries(paths)
+  .reduce((acc, [key, value]) => {
+    return {
+      ...acc,
+      [key]: value.replace('/*', '')
+    } 
+  }, {})
+
+const renamedPaths = Object.entries(paths)
+  .reduce((acc, [key, value]) => {
+    return {
+      ...acc,
+      [`${key}Path`]: value
+    } 
+  }, {})
+
+const pathsWithoutSettings = Object.entries(paths)
+  .filter(([key]) => key !== 'settings')
+  .reduce((acc, [key, value]) => {
+    return { 
+      ...acc,
+      [key]: value
+    }
+  }, {})
+  </script>
+</body>
+</html>
